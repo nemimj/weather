@@ -12,7 +12,6 @@ body {
 }
 
 input {
-  margin-left: 6px;
   border: 0;
   outline: 0;
   font-size: 1rem;
@@ -26,10 +25,6 @@ button {
   font-size: 1.2rem;
   width: 40px;
   height: 40px;
-  margin-right: auto;
-  margin-left: auto;
-  /* border: 2px solid; */
-  /* text-align: right; */
   border-radius: 50%;
   background: white;
   cursor: pointer;
@@ -40,7 +35,7 @@ button {
   padding: 1rem;
   width: 90%;
   margin: 100px auto 0;
-  max-width: 350px;
+  max-width: 450px;
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
@@ -80,4 +75,25 @@ button {
 }
 .col .wind img {
   width: 40px;
+}
+
+
+@media (max-width:323px) {
+  .report{
+    flex-direction: column;
+    gap: 1rem;
+  }
+  p{
+    font-size: 0.9rem;
+  }
+  input{
+    padding: 0.4rem;
+  }
+
+  .place{
+    justify-content: center;
+  }
+  button{
+    padding: 0.8rem;
+  }
 }
