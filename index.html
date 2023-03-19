@@ -11,92 +11,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="style.css" />
     <title>weather report</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-      body {
-        background-color: #222;
-        font-size: 1.8rem;
-        color: white;
-      }
-
-      input {
-        margin-left: 6px;
-        border: 0;
-        outline: 0;
-        font-size: 1rem;
-        border-radius: 26px;
-        padding: 0.8rem;
-        flex: 1;
-        margin-right: 10px;
-      }
-      button {
-        border: 0;
-        font-size: 1.2rem;
-        width: 40px;
-        height: 40px;
-        margin-right: auto;
-        margin-left: auto;
-        /* border: 2px solid; */
-        /* text-align: right; */
-        border-radius: 50%;
-        background: white;
-        cursor: pointer;
-      }
-
-      .card {
-        border-radius: 20px;
-        padding: 1rem;
-        width: 90%;
-        margin: 100px auto 0;
-        max-width: 350px;
-        background: linear-gradient(
-          90deg,
-          rgba(2, 0, 36, 1) 0%,
-          rgba(87, 184, 191, 1) 0%,
-          rgba(21, 236, 147, 1) 100%
-        );
-      }
-
-      .place {
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-      }
-      .weather {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .report {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 1rem 0;
-      }
-      .col {
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.6rem;
-      }
-
-      .col .humidity img {
-        width: 40px;
-      }
-      .col .wind img {
-        width: 40px;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
     <div class="card">
@@ -133,34 +50,6 @@
         </div>
       </div>
     </div>
-    <script>
-      let search = document.querySelector("button");
-      search.addEventListener("click", () => {
-        let input = document.querySelector("input");
-        weatherInfo(input.value);
-      });
-
-      async function weatherInfo(city) {
-        let image = document.querySelector("img");
-        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=36143b0eae6f712413f40588b8b3c002&units=metric`;
-        const response = await fetch(url);
-        let data = await response.json();
-        document.getElementById("city").innerText = data.name;
-        document.getElementById("temp").innerText =
-          Math.round(data.main.temp) + "°C";
-        document.querySelector(".wind-percentage").innerText =
-          data.wind.speed + "km/h";
-        document.querySelector(".hum-percentage").innerText =
-          data.main.humidity + "%";
-
-        if (data[0].main == "Clouds") image.src = "images/clouds.png";
-        else if (data[0].main == "Drizzle") image.src = "images/drizzle.png";
-        else if (data[0].main == "Clear") image.src = "images/clear.png";
-        else if (data[0].main == "Mist") image.src = "images/mist.png";
-        else if (data[0].main == "Humidity") image.src = "images/humidity.png";
-      }
-
-      weatherInfo("davangere");
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
